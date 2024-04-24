@@ -1,0 +1,56 @@
+{
+  "monsters": [
+    {
+      "id": 1,
+      "name": "soldier",
+      "isHuman": true
+    },
+    {
+      "id": 2,
+      "name": "slime",
+      "isHuman": false
+    },
+    {
+      "id": 3,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 4,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 5,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 6,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 7,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 8,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 9,
+      "name": "dragon",
+      "isHuman": false
+    },
+    {
+      "id": 10,
+      "name": "dragon",
+      "isHuman": false
+    }
+  ]
+
+
+}

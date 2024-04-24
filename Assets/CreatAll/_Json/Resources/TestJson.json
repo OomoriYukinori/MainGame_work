@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "name": "soldier",
+  "isHuman": true,
+  "hp": 3,
+  "attackPoint": 2
+}
