@@ -4,7 +4,7 @@ using UniRx;
 
 public class TextManeger : MonoBehaviour
 {
-    static public ReactiveProperty<int> myScore = new ReactiveProperty<int>();
+    static public ReactiveProperty<int> myScore = new();
     float time;
     
     // Start is called before the first frame update
