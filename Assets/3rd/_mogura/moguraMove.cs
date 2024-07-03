@@ -7,12 +7,13 @@ public class MoguraMove : MonoBehaviour
     private bool canMove = true ;
     float moveTime;
     float coolTime;
+    readonly int startPosY = -5;
     // Start is called before the first frame update
     void Start()
     {
         coolTime = Random.Range(4f, 5f);//初期設定
         InvokeRepeating(nameof(MoveMogura), 
-            Random.Range(1f, 3f),coolTime);//定期呼び出し
+        Random.Range(1f, 3f),coolTime);//定期呼び出し
     }
 
     // Update is called once per frame
@@ -21,17 +22,17 @@ public class MoguraMove : MonoBehaviour
         if (canMove) 
         {
             moveTime += 0.05f; 
-            float newY = Mathf.Lerp(-6, 1, (Mathf.Sin(moveTime * 3) + 1) / 2);//-6から1の間で上下に動かす
+            float newY = Mathf.Lerp(-6, 1, (Mathf.Sin(moveTime * 3) + 1) / 2);//高さ-6から1の間で上下に動かす
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, newY, gameObject.transform.position.z);//モグラを動かす
         }
 
-        if (gameObject.transform.position.y <= -5 && canMove == true)//初期位置より下ならば
+        if (gameObject.transform.position.y <= startPosY && canMove == true)//初期位置より下ならば
         {
             moveTime = 0;//各種リセット
             canMove = false;
             canClick = true;
             canMovenum = 100;
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x,-6, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x,startPosY-1, gameObject.transform.position.z);
         }
         if ((int)Time.time > 30)
         {
@@ -39,7 +40,7 @@ public class MoguraMove : MonoBehaviour
         }
         else
         {
-            coolTime = Random.Range(3f, 5f);//3f~5fの間でモグラがでる
+            coolTime = Random.Range(3f, 5f);//3f~5fの感覚でモグラがでる
         }
     }
     private void OnMouseDown()
@@ -54,6 +55,10 @@ public class MoguraMove : MonoBehaviour
     {
         canMovenum = UnityEngine.Random.Range(0f, 100f);
         if (canMovenum <= 33) canMove = true;//約三分の一の確率で動く
+        if (Time.timeScale == 0)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -6, gameObject.transform.position.z);
+        }
         //Debug.Log(canMovenum);
     }
 
